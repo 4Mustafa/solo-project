@@ -8,10 +8,12 @@ function* topicSaga() {
 
 function* addTopic(action) {
     try {
-        yield axios.post('/topic', action.payload);
-        yield put({ type: 'SET_TOPIC' });
+        const response = yield axios.post('/topic', action.payload);
+        yield put({ type: 'SET_TOPIC', payload: response.data });
+        console.log(response.data);
+
     } catch (error) {
-        console.log('post item to server failed', error);
+        console.log('post topic to server failed', error);
     }
 }
 

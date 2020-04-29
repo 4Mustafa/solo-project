@@ -21,8 +21,12 @@ export class searchSite extends Component {
         event.preventDefault();
         console.log(this.state.site);
         this.props.dispatch({ type: 'GET_SITE', payload: { newSite: this.state.site } })
-        /*         this.props.history.push('/Review'); 
-         */
+        this.props.history.push('/siteNameResults');
+
+
+    }
+    handleBack = () => {
+        this.props.history.push('/home');
     }
 
     render() {
@@ -34,6 +38,7 @@ export class searchSite extends Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.handleSubmit}>SEARCH </button>
+                <button onClick={this.handleBack}>BACK</button>
 
             </div>
         )

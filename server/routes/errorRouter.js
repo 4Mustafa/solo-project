@@ -9,10 +9,11 @@ router.post('/', (req, res) => {
     console.log(req.body);
 
     const queryText = `SELECT error.id, errorCode, topic, url, site, refrences FROM error
-        JOIN url ON error.id = url.error_id WHERE error LIKE ${req.body.newError}`;
-    pool.query(queryText)
+        JOIN url ON error.id = url.error_id WHERE error.errorcode LIKE $1`;
+    pool.query(queryText, [req.body.newError])
         .then((result) => {
             res.send(result.rows);
+            console.log('results.rows are', result.rows);
         })
         .catch((error) => {
             console.log(`Error on query ${error}`);
@@ -21,11 +22,6 @@ router.post('/', (req, res) => {
 });
 
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
 
-});
 
 module.exports = router;

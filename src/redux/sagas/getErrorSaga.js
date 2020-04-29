@@ -8,10 +8,12 @@ function* errorSaga() {
 
 function* addError(action) {
     try {
-        yield axios.post('/topic', action.payload);
-        yield put({ type: 'SET_ERROR' });
+        const response = yield axios.post('/error', action.payload);
+        yield put({ type: 'SET_ERROR', payload: response.data });
+        console.log(response.data);
+
     } catch (error) {
-        console.log('post item to server failed', error);
+        console.log('post error to server failed', error);
     }
 }
 

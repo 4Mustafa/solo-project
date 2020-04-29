@@ -21,8 +21,11 @@ export class searchError extends Component {
         event.preventDefault();
         console.log(this.state.error);
         this.props.dispatch({ type: 'GET_ERROR', payload: { newError: this.state.error } })
-        /*         this.props.history.push('/Review'); 
-         */
+        this.props.history.push('/errorResults');
+
+    }
+    handleBack = () => {
+        this.props.history.push('/home');
     }
 
     render() {
@@ -34,6 +37,7 @@ export class searchError extends Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.handleSubmit}>SEARCH </button>
+                <button onClick={this.handleBack}>BACK</button>
 
             </div>
         )

@@ -8,10 +8,12 @@ function* siteSaga() {
 
 function* addSite(action) {
     try {
-        yield axios.post('/topic', action.payload);
-        yield put({ type: 'SET_SITE' });
+        const response = yield axios.post('/site', action.payload);
+        yield put({ type: 'SET_SITE', payload: response.data });
+        console.log(response.data);
+
     } catch (error) {
-        console.log('post item to server failed', error);
+        console.log('post site to server failed', error);
     }
 }
 

@@ -20,8 +20,9 @@ import MainPage from '../searchPage/mainPage';
 import searchError from '../searchPage/searchError'
 import searchTopic from '../searchPage/searchTopic'
 import searchSite from '../searchPage/searchSite'
-
-
+import topicResult from '../resultsPage/topicResults'
+import siteResult from '../resultsPage/siteNameResults'
+import errorResult from '../resultsPage/errorResults'
 
 
 import './App.css';
@@ -57,25 +58,46 @@ class App extends Component {
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
+
             <ProtectedRoute
               exact
               path="/searchError"
               component={searchError}
             />
+
             <ProtectedRoute
               exact
               path="/searchTopic"
               component={searchTopic}
             />
+
             {<ProtectedRoute
               exact
               path="/searchSite"
               component={searchSite}
             />}
+
             <ProtectedRoute
               exact
               path="/info"
               component={InfoPage}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/topicResults"
+              component={topicResult}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/siteNameResults"
+              component={siteResult}
+            />
+            <ProtectedRoute
+              exact
+              path="/errorResults"
+              component={errorResult}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

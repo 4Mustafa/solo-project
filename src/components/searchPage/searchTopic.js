@@ -21,9 +21,13 @@ export class searchTopic extends Component {
         event.preventDefault();
         console.log(this.state.topic);
         this.props.dispatch({ type: 'GET_TOPIC', payload: { newTopic: this.state.topic } })
-        /*         this.props.history.push('/');
-         */
+        this.props.history.push('/topicResults');
+
     }
+    handleBack = () => {
+        this.props.history.push('/home');
+    }
+
 
     render() {
         return (
@@ -34,6 +38,7 @@ export class searchTopic extends Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.handleSubmit}>SEARCH </button>
+                <button onClick={this.handleBack}>BACK</button>
 
             </div>
         )
