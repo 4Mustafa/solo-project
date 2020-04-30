@@ -2,7 +2,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
 }
-
+body{
+    background-color: #dbd5d5;;
+}
 .alert {
     background-color: #ff4545;
     margin: 50px;
@@ -21,9 +23,16 @@ input {
     margin: 5px;
     margin-bottom: 10px;
 }
+button,
+select,
+input{
+    font-size: 24px;
+text-align: center;    color: #b00000;
+}
+
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #b00000;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -33,7 +42,7 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #800000;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 
-class allResult extends Component {
+class allResults extends Component {
     componentDidMount() {
         this.props.dispatch({ type: 'GET_ALLRESULTS' });
     }
@@ -31,5 +31,5 @@ class allResult extends Component {
 const putPropsOnRedux = (reduxStore) => ({
     all: reduxStore.getItem
 })
-export default withRouter(connect(putPropsOnRedux)(allResult));
+export default withRouter(connect(putPropsOnRedux)(allResults));
 

@@ -7,7 +7,7 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <h2 className="nav-title">Prime Solo Project</h2>
+      <h2 className="nav-title">Smart Mark</h2>
     </Link>
     <div className="nav-right">
       <Link className="nav-link" to="/home">
@@ -17,25 +17,28 @@ const Nav = (props) => (
         {props.user.id ? 'Home' : 'Login / Register'}
       </Link>
       {/* Show the link to the info page and the logout button if the user is logged in */}
-      {props.user.id && (
-        <>
-          <Link className="nav-link" to="/info">
-            Info Page
-          </Link>
-          <LogOutButton className="nav-link" />
-        </>
-      )}
+
       {/* Always show this link since the about page is not protected */}
-      <Link className="nav-link" to="/about">
+      {/*  <Link className="nav-link" to="/about">
         About
-      </Link>
+      </Link> */}
       <Link className="nav-link" to="/addPage">
         add Page
       </Link>
+      <Link className="nav-link" to="/allResults">
+        All Results
+        </Link>
+      {props.user.id && (
+        <>
+          {/* <Link className="nav-link" to="/info">
+            Info Page
+          </Link> */}
+          <LogOutButton className="nav-link" />
+        </>
+      )}
     </div>
   </div>
 );
-
 // Instead of taking everything from state, we just want the user
 // object to determine if they are logged in
 // if they are logged in, we show them a few more links 

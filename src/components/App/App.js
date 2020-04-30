@@ -24,6 +24,7 @@ import topicResult from '../resultsPage/topicResults'
 import siteResult from '../resultsPage/siteNameResults'
 import errorResult from '../resultsPage/errorResults'
 import addPage from '../addPage/addPage'
+import allResults from '../resultsPage/allResults'
 
 
 import './App.css';
@@ -100,11 +101,19 @@ class App extends Component {
               path="/errorResults"
               component={errorResult}
             />
+
             <ProtectedRoute
               exact
               path="/addPage"
               component={addPage}
             />
+
+            <ProtectedRoute
+              exact
+              path="/allResults"
+              component={allResults}
+            />
+
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
