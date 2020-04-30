@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class siteName extends Component {
     handleBack = () => {
-        this.props.history.push('/searchTopic');
+        this.props.history.push('/searchSite');
     }
     displayItems = (list) => {
         if (list) {

@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class errorResult extends Component {
     handleBack = () => {
-        this.props.history.push('/searchTopic');
+        this.props.history.push('/searchError');
     }
     displayItems = (list) => {
         if (list) {

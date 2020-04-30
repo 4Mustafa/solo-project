@@ -17,12 +17,15 @@ export class searchError extends Component {
 
     }
     handleSubmit = (event) => {
+        if (this.state.error === '') {
+            alert('Please enter a search type')
+        } else {
+            event.preventDefault();
+            console.log(this.state.error);
+            this.props.dispatch({ type: 'GET_ERROR', payload: { newError: this.state.error } })
+            this.props.history.push('/errorResults');
 
-        event.preventDefault();
-        console.log(this.state.error);
-        this.props.dispatch({ type: 'GET_ERROR', payload: { newError: this.state.error } })
-        this.props.history.push('/errorResults');
-
+        }
     }
     handleBack = () => {
         this.props.history.push('/home');

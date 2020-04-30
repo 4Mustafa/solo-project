@@ -10,7 +10,7 @@ class allResults extends Component {
         this.props.dispatch({ type: 'GET_ALLRESULTS' });
     }
     handleBack = () => {
-        this.props.history.push('/searchTopic');
+        this.props.history.push('/home');
     }
     displayItems = (list) => {
 
@@ -31,6 +31,7 @@ class allResults extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.url}</td>
                                 <td>{item.site}</td>
+                                <button onClick={this.handleEdit}>EDIT</button>
                             </tr>
                         </table>
                     )}

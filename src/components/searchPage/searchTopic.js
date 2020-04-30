@@ -17,12 +17,14 @@ export class searchTopic extends Component {
 
     }
     handleSubmit = (event) => {
-
-        event.preventDefault();
-        console.log(this.state.topic);
-        this.props.dispatch({ type: 'GET_TOPIC', payload: { newTopic: this.state.topic } })
-        this.props.history.push('/topicResults');
-
+        if (this.state.topic === '') {
+            alert('Please enter a search type')
+        } else {
+            event.preventDefault();
+            console.log(this.state.topic);
+            this.props.dispatch({ type: 'GET_TOPIC', payload: { newTopic: this.state.topic } })
+            this.props.history.push('/topicResults');
+        }
     }
     handleBack = () => {
         this.props.history.push('/home');

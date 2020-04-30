@@ -17,13 +17,14 @@ export class searchSite extends Component {
 
     }
     handleSubmit = (event) => {
-
-        event.preventDefault();
-        console.log(this.state.site);
-        this.props.dispatch({ type: 'GET_SITE', payload: { newSite: this.state.site } })
-        this.props.history.push('/siteNameResults');
-
-
+        if (this.state.site === '') {
+            alert('Please enter a search type')
+        } else {
+            event.preventDefault();
+            console.log(this.state.site);
+            this.props.dispatch({ type: 'GET_SITE', payload: { newSite: this.state.site } })
+            this.props.history.push('/siteNameResults');
+        }
     }
     handleBack = () => {
         this.props.history.push('/home');
