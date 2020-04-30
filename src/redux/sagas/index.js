@@ -6,6 +6,7 @@ import topicSaga from './getTopicSaga'
 import errorSaga from './getErrorSaga'
 import siteSaga from './getSiteSaga'
 import addItemSaga from './addItemSaga'
+import allResultSaga from './getAllSaga'
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -22,5 +23,6 @@ export default function* rootSaga() {
     errorSaga(),
     siteSaga(),
     addItemSaga(),
+    allResultSaga(),
   ]);
 }

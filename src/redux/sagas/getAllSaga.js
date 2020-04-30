@@ -6,11 +6,11 @@ function* allResultSaga() {
     yield takeLatest('GET_ALLRESULTS', getAll);
 }
 
-function* getAll(action) {
+function* getAll() {
     try {
         const response = yield axios.get('/main');
         yield put({ type: 'GET_ITEM', payload: response.data });
-        console.log(response.data);
+        console.log('IN GETALL', response.data);
 
     } catch (error) {
         console.log('post error to server failed', error);
