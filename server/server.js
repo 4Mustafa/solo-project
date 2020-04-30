@@ -13,6 +13,7 @@ const userRouter = require('./routes/user.router');
 const topicRouter = require('./routes/topicRouter');
 const errorRouter = require('./routes/errorRouter');
 const siteRouter = require('./routes/siteRouter');
+const mainRouter = require('./routes/mainRouter');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -28,7 +29,7 @@ app.use('/api/user', userRouter);
 app.use('/topic', topicRouter);
 app.use('/error', errorRouter);
 app.use('/site', siteRouter);
-
+app.use('/main,', mainRouter);
 // Serve static files
 app.use(express.static('build'));
 

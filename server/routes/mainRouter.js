@@ -9,8 +9,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
     console.log(req.body);
 
-    const queryText = `SELECT error.id, errorCode, topic, url, site, refrences FROM error
-        JOIN url ON error.id = url.error_id`;
+    const queryText = `SELECT error.id,errorcode,topic,url, site,refrences FROM error
+JOIN url ON error.id = url.error_id`;
     pool.query(queryText)
         .then((result) => {
             res.send(result.rows);
@@ -21,11 +21,3 @@ router.get('/', (req, res) => {
         });
 });
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-
-});
-
-module.exports = router;
