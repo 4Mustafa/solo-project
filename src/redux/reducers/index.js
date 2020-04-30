@@ -5,6 +5,7 @@ import user from './userReducer';
 import topic from './topicReducer';
 import error from './errorReducer';
 import site from './siteReducer'
+import getItem from './getAllReducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   topic,
   error,
   site,
+  getItem,
 });
 
 export default rootReducer;

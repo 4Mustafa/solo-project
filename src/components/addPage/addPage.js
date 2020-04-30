@@ -23,22 +23,22 @@ class addPage extends Component {
     handleClick = (event) => {
         event.preventDefault();
         console.log('In add form', this.state);
-        /*      this.props.dispatch({
-                 type: 'ADD_ITEM', payload: {
-                     errorCode: this.state.errorCode,
-                     url: this.state.url,
-                     siteName: this.state.siteName,
-                     topic: this.state.topic
-     
-                 }
-             })
-     
-             this.setState({
-                 errorCode: '',
-                 url: '',
-                 siteName: '',
-                 topic: ''
-             }) */
+        this.props.dispatch({
+            type: 'ADD_ITEM', payload: {
+                errorCode: this.state.errorCode,
+                url: this.state.url,
+                siteName: this.state.siteName,
+                topic: this.state.topic
+
+            }
+        })
+
+        this.setState({
+            errorCode: '',
+            url: '',
+            siteName: '',
+            topic: ''
+        })
     }
 
     render() {
