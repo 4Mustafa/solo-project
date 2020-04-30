@@ -21,10 +21,10 @@ JOIN url ON error.id = url.error_id`;
 
 router.post('/', (req, res) => {
     console.log('in post item', req.body);
-    let sqlText = `INSERT INTO "error" ("errorcode", "topic") VALUES ($1, $2) RETURNING id;`;
+    let sqlText = `INSERT INTO "error" ("errorcode", "topic") VALUES ($1, $2) RETURNING id`;
     let sqlText2 = `INSERT INTO "url" ("url", "site","error_id") VALUES ($1, $2, $3);`;
-    let sqlText3 = `SELECT COUNT (*) FROM "error";`;
-    pool.query(sqlText, [req.body.errorCode, req.body.topic,]).then((response) => {
+/*     let sqlText3 = `SELECT COUNT (*) FROM "error";`;
+ */    pool.query(sqlText, [req.body.errorCode, req.body.topic,]).then((response) => {
         pool.query(sqlText2, [req.body.url, req.body.siteName, response.rows[0]]).then(() => {
             res.sendStatus(200);
         })

@@ -14,12 +14,20 @@ class topicResult extends Component {
                 <div>
                     <header> RESULTS</header>
                     {list.map(item =>
-                        <div>
-                            <h1>topic:{item.topic}</h1>
-                            <h1>error code:{item.errorcode}</h1>
-                            <h1>url:{item.url}</h1>
-                            <h1>site name:{item.site}</h1>
-                        </div>
+                        <table>
+                            <tr>
+                                <th>Topic</th>
+                                <th>Error-Code</th>
+                                <th>Url</th>
+                                <th>Site-Name</th>
+                            </tr>
+                            <tr>
+                                <td>{item.topic}</td>
+                                <td>{item.errorcode}</td>
+                                <td>{item.url}</td>
+                                <td>{item.site}</td>
+                            </tr>
+                        </table>
 
 
                     )}
