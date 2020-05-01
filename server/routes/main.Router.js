@@ -65,8 +65,23 @@ router.post('/', (req, res) => {
 });
 
 
+router.delete('/:id', (req, res) => {
+    Id = req.params.id;
+    console.log('id of item to delete and user to delete arrived at server', Id);
+    let sqlText = `DELETE FROM "error" WHERE "id" = $1`;
+    let sqlText2 = `DELETE FROM "url" WHERE "error_id" = $1`;
 
+    pool.query(sqlText2, [Id]).then((response) => {
+        pool.query(sqlText, [Id]).then(() => {
+            res.sendStatus(200);
+        })
+            .catch(error => {
+                console.log('error', error);
+                res.sendStatus(500);
+            });
+    });
 
+});
 
 
 

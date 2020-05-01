@@ -3,22 +3,33 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import axios from 'axios';
 
 class allResults extends Component {
 
     componentDidMount() {
+        this.handleRefresh()
+    }
+    handleRefresh() {
         this.props.dispatch({ type: 'GET_ALLRESULTS' });
+
     }
 
     handleEdit = () => {
         this.props.history.push('/EditPage')
     }
-    handleDelete = () => {
-        console.log('in handle delete');
+    handleDelete = (id) => {
+        console.log('in handle delete', id);
+        axios.delete(`/main/${id}`)
+            .then((response) => {
+                this.handleRefresh()
+            })
+            .catch((error) => {
+                alert('Error on delete');
+                console.log('Error on DELTE', error);
+            })
     }
-    handleBack = () => {
-        this.props.history.push('/home');
-    }
+
     displayItems = (list) => {
 
         if (list) {
@@ -39,12 +50,10 @@ class allResults extends Component {
                                 <td>{item.url}</td>
                                 <td>{item.site}</td>
                                 <button onClick={this.handleEdit}>Edit</button>
-                                <button onClick={this.handleDelete}>Delete</button>
-
+                                <button onClick={() => this.handleDelete(item.id)}>Delete</button>
                             </tr>
                         </table>
                     )}
-                    <button onClick={this.handleBack}>Home</button>
                 </div>
             )
 
