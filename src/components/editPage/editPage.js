@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class addPage extends Component {
+class editPage extends Component {
 
     state = ({
         errorCode: '',
@@ -21,21 +21,21 @@ class addPage extends Component {
 
 
     handleClick = (event) => {
-        if (this.state.errorCode === '' || this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
-            alert('Please enter a search type')
-        } else {
-            event.preventDefault();
-            console.log('In add form', this.state);
-            this.props.dispatch({
-                type: 'ADD_ITEM', payload: {
-                    errorCode: this.state.errorCode,
-                    url: this.state.url,
-                    siteName: this.state.siteName,
-                    topic: this.state.topic
-
-                }
-            })
-        }
+        /*        if (this.state.errorCode === '' || this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
+                   alert('Please enter a search type')
+               } else {
+                   event.preventDefault();
+                   console.log('In add form', this.state);
+                   this.props.dispatch({
+                       type: 'ADD_ITEM', payload: {
+                           errorCode: this.state.errorCode,
+                           url: this.state.url,
+                           siteName: this.state.siteName,
+                           topic: this.state.topic
+       
+                       }
+                   })
+               } */
 
         this.setState({
             errorCode: '',
@@ -48,7 +48,7 @@ class addPage extends Component {
     render() {
         return (
             <form>
-                <p>Create Smart Mark</p>
+                <p>EDIT</p>
                 <input
                     type="text"
                     name="errorCode"
@@ -85,4 +85,4 @@ const mapReduxStateToProps = (reduxState) => ({
     reduxState
 });
 
-export default connect(mapReduxStateToProps)(addPage);
+export default connect(mapReduxStateToProps)(editPage);

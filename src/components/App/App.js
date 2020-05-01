@@ -25,8 +25,7 @@ import siteResult from '../resultsPage/siteNameResults'
 import errorResult from '../resultsPage/errorResults'
 import addPage from '../addPage/addPage'
 import allResults from '../resultsPage/allResults'
-
-
+import editPage from '../editPage/editPage'
 import './App.css';
 
 class App extends Component {
@@ -112,6 +111,11 @@ class App extends Component {
               exact
               path="/allResults"
               component={allResults}
+            />
+            <ProtectedRoute
+              exact
+              path="/editPage"
+              component={editPage}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

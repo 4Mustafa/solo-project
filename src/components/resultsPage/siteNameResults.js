@@ -31,7 +31,7 @@ class siteName extends Component {
 
 
                     )}
-                    <button onClick={this.handleBack}>BACK</button>
+                    <button onClick={this.handleBack}>Back</button>
                 </div>
             )
 

@@ -7,7 +7,7 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <h2 className="nav-title">Smart Mark</h2>
+      <h2 className="nav-title">Smart-Mark</h2>
     </Link>
     <div className="nav-right">
       <Link className="nav-link" to="/home">
@@ -23,10 +23,10 @@ const Nav = (props) => (
         About
       </Link> */}
       <Link className="nav-link" to="/addPage">
-        add Page
+        add Mark
       </Link>
       <Link className="nav-link" to="/allResults">
-        All Results
+        All Marks
         </Link>
       {props.user.id && (
         <>

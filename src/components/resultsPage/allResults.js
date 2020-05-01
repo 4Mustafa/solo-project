@@ -9,6 +9,13 @@ class allResults extends Component {
     componentDidMount() {
         this.props.dispatch({ type: 'GET_ALLRESULTS' });
     }
+
+    handleEdit = () => {
+        this.props.history.push('/EditPage')
+    }
+    handleDelete = () => {
+        console.log('in handle delete');
+    }
     handleBack = () => {
         this.props.history.push('/home');
     }
@@ -31,11 +38,13 @@ class allResults extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.url}</td>
                                 <td>{item.site}</td>
-                                <button onClick={this.handleEdit}>EDIT</button>
+                                <button onClick={this.handleEdit}>Edit</button>
+                                <button onClick={this.handleDelete}>Delete</button>
+
                             </tr>
                         </table>
                     )}
-                    <button onClick={this.handleBack}>BACK</button>
+                    <button onClick={this.handleBack}>Home</button>
                 </div>
             )
 
