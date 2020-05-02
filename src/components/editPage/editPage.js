@@ -23,21 +23,23 @@ class editPage extends Component {
 
 
     handleClick = (event) => {
-        /*        if (this.state.errorCode === '' || this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
-                   alert('Please enter a search type')
-               } else {
-                   event.preventDefault();
-                   console.log('In add form', this.state);
-                   this.props.dispatch({
-                       type: 'ADD_ITEM', payload: {
-                           errorCode: this.state.errorCode,
-                           url: this.state.url,
-                           siteName: this.state.siteName,
-                           topic: this.state.topic
-       
-                       }
-                   })
-               } */
+        if (this.state.errorCode === '' || this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
+            alert('Please enter a search type')
+        } else {
+            event.preventDefault();
+            console.log('In submit edit ', this.state);
+            this.props.dispatch({
+                type: 'EDIT', payload: {
+                    id: this.state.id,
+                    errorCode: this.state.errorCode,
+                    url: this.state.url,
+                    siteName: this.state.siteName,
+                    topic: this.state.topic
+
+                }
+
+            })
+        }
 
         this.setState({
             errorCode: '',
@@ -45,6 +47,8 @@ class editPage extends Component {
             siteName: '',
             topic: ''
         })
+        this.props.history.push('/allResults');
+
     }
 
     render() {

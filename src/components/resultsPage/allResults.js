@@ -18,9 +18,10 @@ class allResults extends Component {
     handleEdit = (item) => {
         this.props.history.push('/EditPage')
         this.props.dispatch({ type: 'HOLD_ITEM', payload: item });
-        console.log('item is', item);
-    }
 
+        console.log('item is', item);
+
+    }
     handleDelete = (id) => {
         console.log('in handle delete', id);
         axios.delete(`/main/${id}`)

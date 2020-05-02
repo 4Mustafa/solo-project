@@ -84,9 +84,32 @@ router.delete('/:id', (req, res) => {
 });
 
 
+router.put('/', (req, res) => {
+    console.log(req.body);
+
+    let id = req.body.id;
+    let errorCode = req.body.errorCode;
+    let url = req.body.url;
+    let siteName = req.body.siteName;
+    let topic = req.body.topic;
+
+    let queryText = `UPDATE url SET url = $1, site = $2, error_id = $3 
+                    WHERE error_id = $4`;
+
+    let queryText2 = `UPDATE error SET errorcode = $1, topic = $2 
+                    WHERE id = $3`;
+    pool.query(queryText, [url, siteName, id, id])
+        .then((response) => {
+            pool.query(queryText2, [errorCode, topic, id]).then(() => {
+                res.sendStatus(200);
+            }).catch((error) => {
+                console.log('Error in UPDATE', error);
+                res.sendStatus(500);
+            })
+        });
 
 
-
+});
 
 
 

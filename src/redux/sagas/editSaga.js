@@ -1,14 +1,17 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, actionChannel } from 'redux-saga/effects';
 
 
-function* editSaga() {
-    yield takeLatest('EDIT', getEdit);
+function* getEdit() {
+    yield takeLatest('EDIT', editSaga);
 }
 
-function* editSaga() {
+function* editSaga(action) {
     try {
+        console.log('payload is', action.payload);
+
         const response = yield axios.put('/main', action.payload);
+
         yield put({ type: 'GET_ALLRESULTS' });
         console.log('IN EDIT SAGA', response.data);
 
@@ -18,4 +21,4 @@ function* editSaga() {
 }
 
 
-export default editSaga;
+export default getEdit;

@@ -10,6 +10,7 @@ import allResultSaga from './getAllSaga'
 import deleteSaga from './deleteSaga'
 import wordSaga from './getWordSaga'
 import word from '../reducers/wordReducer';
+import getEdit from '../sagas/editSaga'
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     allResultSaga(),
     deleteSaga(),
     wordSaga(),
+    getEdit(),
   ]);
 }
