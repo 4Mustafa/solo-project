@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 class editPage extends Component {
 
     state = ({
-        errorCode: '',
-        url: '',
-        siteName: '',
-        topic: ''
+        id: this.props.edit.id,
+        errorCode: this.props.edit.errorcode,
+        url: this.props.edit.url,
+        siteName: this.props.edit.site,
+        topic: this.props.edit.topic
     })
 
 
@@ -16,6 +17,7 @@ class editPage extends Component {
         this.setState({
             [name]: event.target.value,
         })
+
     }
 
 
@@ -82,7 +84,7 @@ class editPage extends Component {
 }
 
 const mapReduxStateToProps = (reduxState) => ({
-    reduxState
+    edit: reduxState.edit
 });
 
 export default connect(mapReduxStateToProps)(editPage);

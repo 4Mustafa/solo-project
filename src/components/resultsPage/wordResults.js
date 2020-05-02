@@ -3,38 +3,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import axios from 'axios';
 
-class allResults extends Component {
-
-    componentDidMount() {
-        this.handleRefresh()
+class wordResult extends Component {
+    handleBack = () => {
+        this.props.history.push('/searchTopic');
     }
-    handleRefresh() {
-        this.props.dispatch({ type: 'GET_ALLRESULTS' });
-
-    }
-
-    handleEdit = (item) => {
-        this.props.history.push('/EditPage')
-        this.props.dispatch({ type: 'HOLD_ITEM', payload: item });
-        console.log('item is', item);
-    }
-
-    handleDelete = (id) => {
-        console.log('in handle delete', id);
-        axios.delete(`/main/${id}`)
-            .then((response) => {
-                this.handleRefresh()
-            })
-            .catch((error) => {
-                alert('Error on delete');
-                console.log('Error on DELTE', error);
-            })
-    }
-
     displayItems = (list) => {
-
         if (list) {
             return (
                 <div>
@@ -52,11 +26,12 @@ class allResults extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.url}</td>
                                 <td>{item.site}</td>
-                                <button onClick={() => this.handleEdit(item)}>Edit</button>
-                                <button onClick={() => this.handleDelete(item.id)}>Delete</button>
                             </tr>
                         </table>
+
+
                     )}
+                    <button onClick={this.handleBack}>Back</button>
                 </div>
             )
 
@@ -66,12 +41,13 @@ class allResults extends Component {
     render() {
         return (
             <div>
-                {this.displayItems(this.props.getItem)}
+                {this.displayItems(this.props.word)}
             </div>
         )
     }
 }
 const putPropsOnRedux = (reduxStore) => ({
-    getItem: reduxStore.getItem
+    word: reduxStore.word
 })
-export default withRouter(connect(putPropsOnRedux)(allResults));
+export default withRouter(connect(putPropsOnRedux)(wordResult));
+

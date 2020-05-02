@@ -29,6 +29,8 @@ export class MainPage extends Component {
 
         } else if (this.state.option === '3') {
             this.props.history.push('/searchTopic');
+        } else if (this.state.option === '4') {
+            this.props.history.push('/searchWord');
 
         } else {
             alert('Please select a search type')
@@ -45,6 +47,8 @@ export class MainPage extends Component {
                     <option value='1'>SITE NAME</option>
                     <option value='2'>ERROR CODE</option>
                     <option value='3'>TOPIC</option>
+                    <option value='4'>Refrence-Words</option>
+
                 </select>
                 <button onClick={this.handleSubmit}>SELECT </button>
 

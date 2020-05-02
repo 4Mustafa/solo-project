@@ -14,6 +14,7 @@ const topicRouter = require('./routes/topic.Router');
 const errorRouter = require('./routes/error.Router');
 const siteRouter = require('./routes/site.Router');
 const mainRouter = require('./routes/main.Router');
+const wordRouter = require('./routes/word.router')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -30,6 +31,7 @@ app.use('/topic', topicRouter);
 app.use('/error', errorRouter);
 app.use('/site', siteRouter);
 app.use('/main', mainRouter);
+app.use('/word', wordRouter);
 // Serve static files
 app.use(express.static('build'));
 

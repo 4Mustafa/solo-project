@@ -14,8 +14,8 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+/* import UserPage from '../UserPage/UserPage';
+ */import InfoPage from '../InfoPage/InfoPage';
 import MainPage from '../searchPage/mainPage';
 import searchError from '../searchPage/searchError'
 import searchTopic from '../searchPage/searchTopic'
@@ -26,6 +26,8 @@ import errorResult from '../resultsPage/errorResults'
 import addPage from '../addPage/addPage'
 import allResults from '../resultsPage/allResults'
 import editPage from '../editPage/editPage'
+import searchWord from '../searchPage/searchWord'
+import wordResult from '../resultsPage/wordResults'
 import './App.css';
 
 class App extends Component {
@@ -118,6 +120,17 @@ class App extends Component {
               component={editPage}
             />
 
+            <ProtectedRoute
+              exact
+              path="/searchWord"
+              component={searchWord}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/wordResults"
+              component={wordResult}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

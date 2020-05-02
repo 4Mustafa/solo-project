@@ -8,6 +8,8 @@ import siteSaga from './getSiteSaga'
 import addItemSaga from './addItemSaga'
 import allResultSaga from './getAllSaga'
 import deleteSaga from './deleteSaga'
+import wordSaga from './getWordSaga'
+import word from '../reducers/wordReducer';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -26,5 +28,6 @@ export default function* rootSaga() {
     addItemSaga(),
     allResultSaga(),
     deleteSaga(),
+    wordSaga(),
   ]);
 }
