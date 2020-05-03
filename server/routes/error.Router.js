@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
 
     const queryText = `SELECT error.id, errorCode, topic, url, site, refrences FROM error
         JOIN url ON error.id = url.error_id WHERE error.errorcode LIKE $1`;
-    pool.query(queryText, [req.body.newError])
+    pool.query(queryText, [`%${req.body.newError}%`])
         .then((result) => {
             res.send(result.rows);
             console.log('results.rows are', result.rows);

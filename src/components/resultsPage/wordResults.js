@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class wordResult extends Component {
     handleBack = () => {
-        this.props.history.push('/searchTopic');
+        this.props.history.push('/searchWord');
     }
     displayItems = (list) => {
         if (list) {
