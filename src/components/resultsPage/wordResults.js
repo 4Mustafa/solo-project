@@ -18,13 +18,15 @@ class wordResult extends Component {
                             <tr>
                                 <th>Topic</th>
                                 <th>Error-Code</th>
-                                <th>Url</th>
                                 <th>Site-Name</th>
+                                <th>link</th>
                             </tr>
                             <tr>
                                 <td>{item.topic}</td>
                                 <td>{item.errorcode}</td>
-                                <td>{item.url}</td>
+                                <td>{item.site}</td>
+
+                                <td><a href={item.url}>{item.url}</a></td>
                                 <td>{item.site}</td>
                             </tr>
                         </table>

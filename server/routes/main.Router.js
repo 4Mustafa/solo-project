@@ -3,12 +3,13 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const request = require('request');
 var keyword_extractor = require("keyword-extractor");
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
 
 
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
 
     const queryText = `SELECT error.id,errorcode,topic,url, site,refrences FROM error
@@ -24,7 +25,7 @@ JOIN url ON error.id = url.error_id`;
 });
 
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('in post item', req.body);
     let sqlText = `INSERT INTO "error" ("errorcode", "topic") VALUES ($1, $2) RETURNING id`;
     let sqlText2 = `INSERT INTO "url" ("url", "site","error_id","refrences") VALUES ($1, $2, $3, $4);`;
@@ -65,7 +66,7 @@ router.post('/', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     Id = req.params.id;
     console.log('id of item to delete and user to delete arrived at server', Id);
     let sqlText = `DELETE FROM "error" WHERE "id" = $1`;
