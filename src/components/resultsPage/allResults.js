@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 import axios from 'axios';
 

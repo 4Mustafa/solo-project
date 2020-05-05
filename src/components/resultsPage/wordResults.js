@@ -8,6 +8,7 @@ class wordResult extends Component {
     handleBack = () => {
         this.props.history.push('/searchWord');
     }
+
     displayItems = (list) => {
         if (list) {
             return (
@@ -25,9 +26,8 @@ class wordResult extends Component {
                                 <td>{item.topic}</td>
                                 <td>{item.errorcode}</td>
                                 <td>{item.site}</td>
-
                                 <td><a href={item.url}>{item.url}</a></td>
-                                <td>{item.site}</td>
+
                             </tr>
                         </table>
 

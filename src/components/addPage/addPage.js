@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FormControl } from '@material-ui/core';
 
 class addPage extends Component {
 
@@ -31,7 +32,8 @@ class addPage extends Component {
                     errorCode: this.state.errorCode,
                     url: this.state.url,
                     siteName: this.state.siteName,
-                    topic: this.state.topic
+                    topic: this.state.topic,
+                    user_id: this.props.reduxState.user.id
 
                 }
             })
@@ -48,7 +50,7 @@ class addPage extends Component {
     render() {
         return (
 
-            <form>
+            <FormControl>
                 <h1>Create Smart Mark</h1>
                 <input
                     type="text"
@@ -77,7 +79,7 @@ class addPage extends Component {
 
                 <button onClick={this.handleClick}>Submit</button>
 
-            </form>
+            </FormControl>
 
         )
     }

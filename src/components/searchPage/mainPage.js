@@ -70,7 +70,3 @@ const putPropsOnReduxStore = (reduxStore) => ({
 
 
 export default withRouter(connect(putPropsOnReduxStore)(MainPage));
-
-
-
-

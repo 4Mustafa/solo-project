@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FormControl } from '@material-ui/core';
+import { Input } from '@material-ui/core';
 
 class editPage extends Component {
 
@@ -56,7 +58,7 @@ class editPage extends Component {
     render() {
         return (
             <>
-                <form>
+                <FormControl className>
                     <h1>EDIT MARK</h1>
                     <input
                         type="text"
@@ -85,7 +87,8 @@ class editPage extends Component {
 
                     <button onClick={this.handleClick}>Submit</button>
                     <button onClick={this.handleBack}>Back</button>
-                </form>
+
+                </FormControl>
 
             </>
 
