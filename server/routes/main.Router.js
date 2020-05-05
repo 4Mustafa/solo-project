@@ -27,7 +27,7 @@ JOIN url ON error.id = url.error_id`;
 
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('in post item', req.body);
-    let sqlText = `INSERT INTO "error" ("errorcode", "topic") VALUES ($1, $2) RETURNING id`;
+    let sqlText = `INSERT INTO "error" ("errorcode", "topic", "user_id") VALUES ($1, $2, $3) RETURNING id`;
     let sqlText2 = `INSERT INTO "url" ("url", "site","error_id","refrences") VALUES ($1, $2, $3, $4);`;
 
     request(`${req.body.url}`, function (error, response, body) {
@@ -51,7 +51,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         }
 
 
-        pool.query(sqlText, [req.body.errorCode, req.body.topic,]).then((response) => {
+        pool.query(sqlText, [req.body.errorCode, req.body.topic, req.body.user_id]).then((response) => {
             pool.query(sqlText2, [req.body.url, req.body.siteName, response.rows[0].id, looper(refrenceWords)]).then(() => {
                 res.sendStatus(200);
             })
@@ -63,14 +63,13 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 
 
-router.delete('/:id', rejectUnauthenticated, (req, res) => {
-    Id = req.params.id;
-    console.log('id of item to delete and user to delete arrived at server', Id);
-    let sqlText = `DELETE FROM "error" WHERE "id" = $1`;
+router.delete('/', rejectUnauthenticated, (req, res) => {
+    console.log('id of item to delete and user to delete arrived at server', req.body);
+    let sqlText = `DELETE FROM "error" WHERE "id" = $1 AND "user_id" = $2`;
     let sqlText2 = `DELETE FROM "url" WHERE "error_id" = $1`;
 
-    pool.query(sqlText2, [Id]).then((response) => {
-        pool.query(sqlText, [Id]).then(() => {
+    pool.query(sqlText2, [req.body.item_id]).then((response) => {
+        pool.query(sqlText, [req.body.item_id, req.body.user_id]).then(() => {
             res.sendStatus(200);
         })
             .catch(error => {

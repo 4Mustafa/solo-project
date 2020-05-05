@@ -8,7 +8,7 @@ function* deleteItem(action) {
     try {
         console.log('A.P IS', action.payload);
 
-        yield axios.delete('/main', action.payload);
+        yield axios.delete('/main', { data: action.payload });
 
 
         yield put({ type: 'GET_ALLRESULTS' });

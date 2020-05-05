@@ -38,14 +38,7 @@ class allResults extends Component {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
-                axios.delete(`/main/${id}`)
-                    .then((response) => {
-                        this.handleRefresh()
-                    })
-                    .catch((error) => {
-                        alert('Error on delete');
-                        console.log('Error on DELTE', error);
-                    })
+                this.props.dispatch({ type: 'DELETE_ITEM', payload: { item_id: id, user_id: this.props.reduxStore.user.id } });
                 Swal.fire(
                     'Smart Mark Deleted!',
 
@@ -105,6 +98,7 @@ class allResults extends Component {
     }
 }
 const putPropsOnRedux = (reduxStore) => ({
-    getItem: reduxStore.getItem
+    getItem: reduxStore.getItem,
+    reduxStore
 })
 export default withRouter(connect(putPropsOnRedux)(allResults));
