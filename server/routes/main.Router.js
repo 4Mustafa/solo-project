@@ -60,9 +60,6 @@ router.post('/', rejectUnauthenticated, (req, res) => {
             res.sendStatus(500);
         });
     });
-
-
-
 });
 
 

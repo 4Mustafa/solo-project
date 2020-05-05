@@ -47,8 +47,9 @@ class addPage extends Component {
 
     render() {
         return (
+
             <form>
-                <p>Create Smart Mark</p>
+                <h1>Create Smart Mark</h1>
                 <input
                     type="text"
                     name="errorCode"
@@ -75,6 +76,7 @@ class addPage extends Component {
                     value={this.state.topic} />
 
                 <button onClick={this.handleClick}>Submit</button>
+
             </form>
 
         )

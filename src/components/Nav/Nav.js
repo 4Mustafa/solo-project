@@ -5,6 +5,8 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 
 const Nav = (props) => (
+
+
   <div className="nav">
     <Link to="/home">
       <h2 className="nav-title">Smart-Mark</h2>

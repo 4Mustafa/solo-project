@@ -3,15 +3,14 @@ body {
     margin: 0px;
 }
 body{
-    background-color: #dbd5d5;;
-}
+background-color:  #3b250041;}
 .alert {
     background-color: #ff4545;
     margin: 50px;
 }
 
 form {
-    background-color: #dbd5d5;
+    background-color:#573b005e;
     width: 30%;
     height: 250px;
     margin: 20px auto;
@@ -23,16 +22,22 @@ input {
     margin: 5px;
     margin-bottom: 10px;
 }
-button,
-select,
-input{
+button, select, input{
     font-size: 24px;
-text-align: center;    color: #b00000;
+ color: #3b2500;
+  background-color: #ffffff;
+
 }
 
 
+
+select:hover,button:hover{
+  background-color:#09005a;
+  color: #E6E6E6;
+}
+
 .log-in, .log-out, .register {
-  background-color: #b00000;
+  background-color:#1800f0;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -42,7 +47,7 @@ text-align: center;    color: #b00000;
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #800000;
+  background-color: #09005a;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -57,51 +62,47 @@ text-align: center;    color: #b00000;
     cursor: pointer;
 }
 
-table.darkTable {
-  font-family: "Arial Black", Gadget, sans-serif;
-  border: 2px solid #000000;
-  background-color: #4A4A4A;
+table {
+  border: 2px solid #FFFFFF;
   width: 100%;
-  height: 200px;
   text-align: center;
   border-collapse: collapse;
 }
-table.darkTable td, table.darkTable th {
-  border: 1px solid #4A4A4A;
-  padding: 3px 2px;
+table td, table th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 4px;
 }
-table.darkTable tbody td {
+table tbody td {
   font-size: 13px;
-  color: #E6E6E6;
 }
-table.darkTable tr:nth-child(even) {
-  background: #888888;
+table td:nth-child(even) {
+  background: #EBEBEB;
 }
-table.darkTable thead {
-  background: #000000;
-  border-bottom: 3px solid #000000;
+table thead {
+  background: #FFFFFF;
+  border-bottom: 4px solid #333333;
 }
-table.darkTable thead th {
+table thead th {
   font-size: 15px;
   font-weight: bold;
-  color: #E6E6E6;
+  color: #333333;
   text-align: center;
-  border-left: 2px solid #4A4A4A;
+  border-left: 2px solid #333333;
 }
-table.darkTable thead th:first-child {
+table thead th:first-child {
   border-left: none;
 }
 
-table.darkTable tfoot {
-  font-size: 12px;
+table tfoot {
+  font-size: 14px;
   font-weight: bold;
-  color: #E6E6E6;
-  background: #000000;
-  background: -moz-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
-  background: -webkit-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
-  background: linear-gradient(to bottom, #404040 0%, #191919 66%, #000000 100%);
-  border-top: 1px solid #4A4A4A;
+  color: #333333;
+  border-top: 4px solid #333333;
 }
-table.darkTable tfoot td {
-  font-size: 12px;
+table tfoot td {
+  font-size: 14px;
+}
+h1{
+color: black;
+text-align: center;
 }
