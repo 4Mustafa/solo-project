@@ -12,7 +12,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
 
-    const queryText = `SELECT error.id,errorcode,topic,url, site, refrences, user_id FROM error
+    const queryText = `SELECT error.id,errorcode,topic,url, site, refrences, user_id, rating FROM error
 JOIN url ON error.id = url.error_id`;
     pool.query(queryText)
         .then((result) => {

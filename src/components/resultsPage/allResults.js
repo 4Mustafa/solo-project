@@ -14,6 +14,23 @@ class allResults extends Component {
     componentDidMount() {
         this.handleRefresh()
     }
+
+
+    handleAdd = (id) => {
+        console.log('plus one ');
+        this.props.dispatch({ type: 'ADD_RATING', payload: id });
+
+    }
+
+
+
+    handleMinus = (id) => {
+        console.log('minus one ');
+        this.props.dispatch({ type: 'MINUS_RATING', payload: id });
+
+    }
+
+
     handleRefresh() {
         this.props.dispatch({ type: 'GET_ALLRESULTS' });
 
@@ -70,9 +87,11 @@ class allResults extends Component {
                                 <th>Topic</th>
                                 <th>Error-Code</th>
                                 <th>Site-Name</th>
-                                <th>link</th>
-                                <th>delete result </th>
-                                <th>edit result</th>
+                                <th>Link</th>
+                                <th>Delete Mark </th>
+                                <th>Edit Mark</th>
+                                <th>Rating</th>
+
 
                             </tr>
                             <tr>
@@ -83,6 +102,10 @@ class allResults extends Component {
                                 <td><a href={item.url}>{item.url}</a></td>
                                 <td> <button onClick={() => this.handleEdit(item)}>Edit</button></td>
                                 <td>   <button onClick={() => this.handleDelete(item)}>Delete</button></td>
+                                <td><span onClick={() => this.handleAdd(item.id)}>&#8679;</span> {item.rating}
+                                    <span onClick={() => this.handleMinus(item.id)}>&#8681;</span>
+
+                                </td>
                             </tr>
                         </table>
                     )
