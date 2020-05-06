@@ -30,6 +30,13 @@ const Nav = (props) => (
       <Link className="nav-link" to="/allResults">
         All Marks
         </Link>
+      <Link className="nav-link" to="/favResults">
+        Favorite Marks
+        </Link>
+
+      <Link className="nav-link" to="/myResults">
+        My Marks
+        </Link>
       {props.user.id && (
         <>
           {/* <Link className="nav-link" to="/info">

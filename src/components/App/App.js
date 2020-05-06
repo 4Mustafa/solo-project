@@ -28,6 +28,8 @@ import allResults from '../resultsPage/allResults'
 import editPage from '../editPage/editPage'
 import searchWord from '../searchPage/searchWord'
 import wordResult from '../resultsPage/wordResults'
+import favResult from '../resultsPage/favResults'
+import myResults from '../resultsPage/myResults'
 import './App.css';
 
 class App extends Component {
@@ -130,6 +132,18 @@ class App extends Component {
               exact
               path="/wordResults"
               component={wordResult}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/favResults"
+              component={favResult}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/myResults"
+              component={myResults}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

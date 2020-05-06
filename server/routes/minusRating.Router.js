@@ -6,7 +6,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('in minus item', req.body.data);
-    let sqlText = `UPDATE  "error" SET rating = rating - 1 WHERE id = $1`;
+    let sqlText = `UPDATE  "error" SET has_voted =  NOT has_voted, direction = 2, rating = rating - 1 WHERE id = $1`;
     pool.query(sqlText, [req.body.data]).then((response) => {
 
         res.sendStatus(200);

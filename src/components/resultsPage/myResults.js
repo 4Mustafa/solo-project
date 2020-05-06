@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 
 
 
-class allResults extends Component {
+class myResults extends Component {
 
 
 
@@ -14,35 +14,9 @@ class allResults extends Component {
         this.handleRefresh()
     }
 
-
-    handleAdd = (item) => {
-        if (item.has_voted === true && item.direction === 1) {
-            console.log('cannot add')
-        } else {
-            console.log('plus one ');
-            this.props.dispatch({ type: 'ADD_RATING', payload: item.id });
-        }
-    }
-
-
-
-    handleMinus = (item) => {
-        if (item.has_voted === true && item.direction === 2) {
-            console.log('cannot minus')
-        } else {
-            console.log('minus one ');
-            this.props.dispatch({ type: 'MINUS_RATING', payload: item.id });
-        }
-    }
-    setFav = (item) => {
-        console.log('in fav item');
-        this.props.dispatch({ type: 'ADD_FAV', payload: { item: item, ID: this.props.reduxStore.user.id } });
-
-    }
-
-
     handleRefresh() {
-        this.props.dispatch({ type: 'GET_ALLRESULTS' });
+        this.props.dispatch({ type: 'GET_MYRESULTS', payload: { user_id: this.props.reduxStore.user.id } });
+
 
     }
 
@@ -90,7 +64,7 @@ class allResults extends Component {
         if (list) {
             return (
                 <div>
-                    <h1>  ALL MARKS</h1>
+                    <h1>  MY MARKS</h1>
                     {list.map(item =>
                         <table>
                             <tr>
@@ -100,8 +74,6 @@ class allResults extends Component {
                                 <th>Link</th>
                                 <th>Edit Mark</th>
                                 <th>Delete Mark </th>
-                                <th>Rating</th>
-                                <th>Favorite</th>
 
 
 
@@ -114,10 +86,6 @@ class allResults extends Component {
                                 <td><a href={item.url}>{item.url}</a></td>
                                 <td> <button onClick={() => this.handleEdit(item)}>Edit</button></td>
                                 <td>   <button onClick={() => this.handleDelete(item)}>Delete</button></td>
-                                <td><span onClick={() => this.handleAdd(item)}>&#8679;</span> {item.rating}
-                                    <span onClick={() => this.handleMinus(item)}>&#8681;</span>
-                                </td>
-                                <td onClick={() => this.setFav(item)}>&#10035;</td>
 
                             </tr>
                         </table>
@@ -134,13 +102,13 @@ class allResults extends Component {
         return (
 
             <div>
-                {this.displayItems(this.props.getItem)}
+                {this.displayItems(this.props.getMine)}
             </div>
         )
     }
 }
 const putPropsOnRedux = (reduxStore) => ({
-    getItem: reduxStore.getItem,
+    getMine: reduxStore.getMine,
     reduxStore
 })
-export default withRouter(connect(putPropsOnRedux)(allResults));
+export default withRouter(connect(putPropsOnRedux)(myResults));

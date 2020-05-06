@@ -17,6 +17,8 @@ const mainRouter = require('./routes/main.Router');
 const wordRouter = require('./routes/word.router')
 const minusRouter = require('./routes/minusRating.Router')
 const addRouter = require('./routes/addRating.Router')
+const favRouter = require('./routes/fav.Router')
+const myResults = require('./routes/myResults.Router')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -36,6 +38,8 @@ app.use('/main', mainRouter);
 app.use('/word', wordRouter);
 app.use('/minusRating', minusRouter);
 app.use('/addRating', addRouter);
+app.use('/fav', favRouter);
+app.use('/mine', myResults);
 
 // Serve static files
 app.use(express.static('build'));
