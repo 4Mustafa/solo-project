@@ -7,4 +7,4 @@ const getMine = (state = [], action) => {
 
 };
 
-export default getMine;
+export default getMine; 

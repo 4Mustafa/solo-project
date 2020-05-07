@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //Connect to the redux store
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
+import Swal from 'sweetalert2'
 
 export class MainPage extends Component {
 
@@ -33,7 +33,11 @@ export class MainPage extends Component {
             this.props.history.push('/searchWord');
 
         } else {
-            alert('Please select a search type')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'please select a search type!',
+            })
         }
         console.log(this.state.option);
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //Connect to the redux store
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 export class searchWord extends Component {
@@ -18,7 +19,11 @@ export class searchWord extends Component {
     }
     handleSubmit = (event) => {
         if (this.state.word === '') {
-            alert('Please enter a search type')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'please enter in refrence words!',
+            })
         } else {
             event.preventDefault();
             console.log(this.state.word);

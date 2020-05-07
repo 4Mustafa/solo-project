@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
@@ -14,8 +15,8 @@ class favResult extends Component {
         this.props.dispatch({ type: 'FAV', payload: id });
     }
 
-    handleDelete = (id) => {
-        console.log('in fav delete', id);
+    handleDelete = (item) => {
+        console.log('in fav delete', item);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -26,13 +27,14 @@ class favResult extends Component {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
-                this.props.dispatch({ type: 'DELETE_FAV', payload: id });
+                this.props.dispatch({ type: 'DELETE_FAV', payload: item });
                 Swal.fire(
                     'Smart Mark Deleted!',
 
                     'success'
 
                 )
+
             }
         })
 
@@ -59,7 +61,7 @@ class favResult extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.site}</td>
                                 <td><a href={item.url}>{item.url}</a></td>
-                                <td>   <button onClick={() => this.handleDelete(item.id)}>Delete</button></td>
+                                <td><button onClick={() => this.handleDelete(item)}>Delete</button></td>
 
                             </tr>
                         </table>

@@ -8,9 +8,10 @@ function* GetMineSaga() {
 
 function* getMine(action) {
     try {
-        console.log('in get mine saga', action.payload);
+        let id = action.payload;
+        console.log('in get mine saga', id);
 
-        const response = yield axios.get('/mine', { data: action.payload });
+        const response = yield axios.get(`/mine/${id}`);
         yield put({ type: 'GET_MINE', payload: response.data });
         console.log('IN GET MINE SAGA', response.data);
 
@@ -20,4 +21,4 @@ function* getMine(action) {
 }
 
 
-export default GetMineSaga;
+export default GetMineSaga; 

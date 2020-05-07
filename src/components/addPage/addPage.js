@@ -22,8 +22,8 @@ class addPage extends Component {
 
 
     handleClick = (event) => {
-        if (this.state.errorCode === '' || this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
-            alert('Please enter a search type')
+        if (this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
+            alert('Please fill out the form')
         } else {
             event.preventDefault();
             console.log('In add form', this.state);

@@ -27,7 +27,7 @@ class allResults extends Component {
 
 
     handleMinus = (item) => {
-        if (item.has_voted === true && item.direction === 2) {
+        if (item.has_voted === true && item.direction === 2 || item.rating === 0) {
             console.log('cannot minus')
         } else {
             console.log('minus one ');
@@ -35,7 +35,7 @@ class allResults extends Component {
         }
     }
     setFav = (item) => {
-        console.log('in fav item');
+
         this.props.dispatch({ type: 'ADD_FAV', payload: { item: item, ID: this.props.reduxStore.user.id } });
 
     }

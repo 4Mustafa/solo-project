@@ -6,8 +6,8 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('in fav router', req.body);
-    let sqlText = `INSERT INTO "fav" ("topic", "errorcode","url", "site","user_id") VALUES ($1, $2, $3, $4, $5)`;
-    pool.query(sqlText, [req.body.data.item.topic, req.body.data.item.errorcode, req.body.data.item.site, req.body.data.item.url, req.body.data.ID]).then((response) => {
+    let sqlText = `INSERT INTO "fav" ("topic", "errorcode","url", "site", "user_id", "error_id") VALUES ($1, $2, $3, $4, $5, $6)`;
+    pool.query(sqlText, [req.body.data.item.topic, req.body.data.item.errorcode, req.body.data.item.url, req.body.data.item.site, req.body.data.ID, req.body.data.item.id]).then((response) => {
 
         res.sendStatus(200);
     }).catch(error => {
@@ -20,7 +20,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     let id = req.params.id
     console.log('in getfav router', id);
 
-    const queryText = `SELECT id, errorcode, topic, url, site FROM fav WHERE user_id = $1 `;
+    const queryText = `SELECT id, errorcode, user_id, topic, url, site FROM fav WHERE user_id = $1 `;
     pool.query(queryText, [id])
         .then((result) => {
             res.send(result.rows);
@@ -38,6 +38,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
     pool.query(sqlText, [id]).then(() => {
         res.sendStatus(200);
+        console.log('fav deleted');
+
     })
         .catch(error => {
             console.log('error', error);

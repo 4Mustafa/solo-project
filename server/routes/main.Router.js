@@ -67,10 +67,13 @@ router.delete('/', rejectUnauthenticated, (req, res) => {
     console.log('id of item to delete and user to delete arrived at server', req.body);
     let sqlText = `DELETE FROM "error" WHERE "id" = $1 AND "user_id" = $2`;
     let sqlText2 = `DELETE FROM "url" WHERE "error_id" = $1`;
+    let sqlText3 = `DELETE FROM "fav" WHERE "user_id" = $1 AND error_id = $2`;
 
     pool.query(sqlText2, [req.body.item_id]).then((response) => {
-        pool.query(sqlText, [req.body.item_id, req.body.user_id]).then(() => {
-            res.sendStatus(200);
+        pool.query(sqlText, [req.body.item_id, req.body.user_id]).then((response) => {
+            pool.query(sqlText3, [req.body.user_id, req.body.item_id]).then(() => {
+                res.sendStatus(200);
+            })
         })
             .catch(error => {
                 console.log('error', error);
@@ -115,4 +118,3 @@ router.put('/', (req, res) => {
 
 
 module.exports = router;
-

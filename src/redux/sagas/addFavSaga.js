@@ -30,13 +30,13 @@ function* getFav(action) {
 
 function* deleteFav(action) {
     try {
-        let id = action.payload
+        let id = action.payload.id
 
         console.log('datate fav id IS', id);
 
         yield axios.delete(`/fav/${id}`);
+        yield put({ type: 'FAV', payload: action.payload.user_id });
 
-        yield put({ type: 'FAV' });
     } catch (error) {
         console.log('post item to server failed', error);
     }

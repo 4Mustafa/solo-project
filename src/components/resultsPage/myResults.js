@@ -15,7 +15,7 @@ class myResults extends Component {
     }
 
     handleRefresh() {
-        this.props.dispatch({ type: 'GET_MYRESULTS', payload: { user_id: this.props.reduxStore.user.id } });
+        this.props.dispatch({ type: 'GET_MYRESULTS', payload: this.props.reduxStore.user.id });
 
 
     }
@@ -49,6 +49,7 @@ class myResults extends Component {
 
                         'success'
                     )
+                    this.props.dispatch({ type: 'GET_MYRESULTS', payload: this.props.reduxStore.user.id });
                 }
             })
         } else {
