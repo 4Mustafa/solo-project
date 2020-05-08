@@ -44,8 +44,8 @@ class favResult extends Component {
     displayItems = (list) => {
         if (list) {
             return (
-                <div>
-                    <header> Your Favorite Marks</header>
+                <div class="move">
+                    <h1> Favorite Marks</h1>
                     {list.map(item =>
                         <table>
                             <tr>

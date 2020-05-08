@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormControl } from '@material-ui/core';
 import { Input } from '@material-ui/core';
+import Swal from 'sweetalert2'
 
 class editPage extends Component {
 
@@ -28,7 +29,13 @@ class editPage extends Component {
 
     handleClick = (event) => {
         if (this.state.errorCode === '' || this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
-            alert('Please enter a search type')
+            Swal.fire({
+                position: 'middle-end',
+                icon: 'error',
+                title: 'please fill out the form below',
+                showConfirmButton: false,
+                timer: 1600
+            })
         } else {
             event.preventDefault();
             console.log('In submit edit ', this.state);

@@ -19,8 +19,8 @@ class siteName extends Component {
     displayItems = (list) => {
         if (list) {
             return (
-                <div>
-                    <header> RESULTS</header>
+                <div class="move">
+                    <header> All Marks Including {list.siteName}</header>
                     {list.map(item =>
                         <table>
                             <tr>
@@ -36,7 +36,7 @@ class siteName extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.site}</td>
                                 <td><a href={item.url}>{item.url}</a></td>
-                                <td><button onClick={() => this.handleGsearch(item.site)}>yes</button></td>
+                                <td><button onClick={() => this.handleGsearch(item.site)}>Yes</button></td>
 
                             </tr>
                         </table>

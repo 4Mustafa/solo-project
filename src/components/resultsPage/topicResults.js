@@ -22,8 +22,8 @@ class topicResult extends Component {
 
             return (
 
-                <div>
-                    <header> RESULTS</header>
+                <div class="move">
+                    <header> All Marks Including {list.topic}</header>
                     {list.map(item =>
                         <table>
                             <tr>
@@ -39,7 +39,7 @@ class topicResult extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.site}</td>
                                 <td><a href={item.url}>{item.url}</a></td>
-                                <td><button onClick={() => this.handleGsearch(item.topic)}>yes</button></td>
+                                <td><button onClick={() => this.handleGsearch(item.topic)}>Yes</button></td>
 
                             </tr>
 

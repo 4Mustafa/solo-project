@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 //Connect to the redux store
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import './MainPage.css';
 import Swal from 'sweetalert2'
-
 export class MainPage extends Component {
+
 
     state = {
         option: '',
@@ -44,21 +45,28 @@ export class MainPage extends Component {
     }
     render() {
         return (
-            <div>
+            <div class="move">
+                <img src={require('../searchPage/SmartMark.png')} />
                 <h1>SELECT A SEARCH TYPE</h1>
-                <select onChange={this.handleChange} value={this.state.option}>
-                    <option value='' >Select</option>
-                    <option value='1'>SITE NAME</option>
-                    <option value='2'>ERROR CODE</option>
-                    <option value='3'>TOPIC</option>
-                    <option value='4'>Refrence-Words</option>
-
-                </select>
-                <button onClick={this.handleSubmit}>SELECT </button>
 
 
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    </div>
+                    <select class="form-control form-control-lg" id="inputGroupSelect01" onChange={this.handleChange} value={this.state.option}>
+                        <option value='' >Select</option>
+                        <option value='1'>Site Name</option>
+                        <option value='2'>Error Code</option>
+                        <option value='3'>Topic</option>
+                        <option value='4'>Refrence-Words</option>
+                    </select>
+                    <button onClick={this.handleSubmit}>Select </button>
 
-            </div>
+                </div>
+
+
+
+            </div >
         )
     }
 }

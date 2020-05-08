@@ -19,8 +19,8 @@ class errorResult extends Component {
     displayItems = (list) => {
         if (list) {
             return (
-                <div>
-                    <header> RESULTS</header>
+                <div class="move">
+                    <header> All Marks Including {list.errorcode}</header>
                     {list.map(item =>
                         <table>
                             <tr>

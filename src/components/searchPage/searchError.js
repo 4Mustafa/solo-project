@@ -38,14 +38,14 @@ export class searchError extends Component {
 
     render() {
         return (
-            <div>
-                <h1>search by Error</h1>
-                <input type='text'
+            <div class="move">
+                <h1>Search By Error</h1>
+                <input type="text" class="form-control" placeholder="error" aria-describedby="button-addon4"
                     value={this.state.error}
                     onChange={this.handleChange}
                 />
-                <button onClick={this.handleSubmit}>SEARCH </button>
-                <button onClick={this.handleBack}>BACK</button>
+                <button onClick={this.handleSubmit}>Search </button>
+                <button onClick={this.handleBack}>Back</button>
 
             </div>
         )

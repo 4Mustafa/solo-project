@@ -45,6 +45,13 @@ class allResults extends Component {
               }
           } */
         this.props.dispatch({ type: 'ADD_FAV', payload: { item: item, ID: this.props.reduxStore.user.id } });
+        Swal.fire({
+            position: 'middle-end',
+            icon: 'success',
+            title: 'added to Favorites',
+            showConfirmButton: false,
+            timer: 1500
+        })
 
     }
 
@@ -60,7 +67,13 @@ class allResults extends Component {
             this.props.dispatch({ type: 'HOLD_ITEM', payload: item });
             console.log('item is', item);
         } else {
-            alert('cannot edit other users Marks')
+            Swal.fire({
+                position: 'middle-end',
+                icon: 'error',
+                title: 'cannot edit other users Marks',
+                showConfirmButton: false,
+                timer: 1600
+            })
         }
 
     }
@@ -86,7 +99,13 @@ class allResults extends Component {
                 }
             })
         } else {
-            alert('cannot delete other users Marks')
+            Swal.fire({
+                position: 'middle-end',
+                icon: 'error',
+                title: 'cannot delete other users Marks',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
     }
 
@@ -98,7 +117,7 @@ class allResults extends Component {
         if (list) {
             return (
                 <div>
-                    <h1>  ALL MARKS</h1>
+                    <h1>  All Marks</h1>
                     {list.map(item =>
                         <table>
                             <tr>

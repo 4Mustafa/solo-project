@@ -38,14 +38,14 @@ export class searchTopic extends Component {
 
     render() {
         return (
-            <div>
-                <h1>search By Topic</h1>
+            <div class="move">
+                <h1>Search By Topic</h1>
                 <input type='text'
                     value={this.state.topic}
                     onChange={this.handleChange}
                 />
-                <button onClick={this.handleSubmit}>SEARCH </button>
-                <button onClick={this.handleBack}>BACK</button>
+                <button onClick={this.handleSubmit}>Search </button>
+                <button onClick={this.handleBack}>Back</button>
 
             </div>
         )

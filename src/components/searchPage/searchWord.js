@@ -38,14 +38,14 @@ export class searchWord extends Component {
 
     render() {
         return (
-            <div>
-                <h1>search by Refrence-Words</h1>
+            <div class="move">
+                <h1>Search By Refrence-Words</h1>
                 <input type='text'
                     value={this.state.word}
                     onChange={this.handleChange}
                 />
-                <button onClick={this.handleSubmit}>SEARCH </button>
-                <button onClick={this.handleBack}>BACK</button>
+                <button onClick={this.handleSubmit}>Search </button>
+                <button onClick={this.handleBack}>Back</button>
 
             </div>
         )

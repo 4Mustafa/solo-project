@@ -26,7 +26,13 @@ class myResults extends Component {
             this.props.dispatch({ type: 'HOLD_ITEM', payload: item });
             console.log('item is', item);
         } else {
-            alert('cannot edit other users Marks')
+            Swal.fire({
+                position: 'middle-end',
+                icon: 'error',
+                title: 'cannot edit other users Marks',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
 
     }
@@ -64,8 +70,8 @@ class myResults extends Component {
 
         if (list) {
             return (
-                <div>
-                    <h1>  MY MARKS</h1>
+                <div class="move">
+                    <h1>  My Marks</h1>
                     {list.map(item =>
                         <table>
                             <tr>

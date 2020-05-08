@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormControl } from '@material-ui/core';
+import Swal from 'sweetalert2'
 
 class addPage extends Component {
 
@@ -23,7 +24,11 @@ class addPage extends Component {
 
     handleClick = (event) => {
         if (this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
-            alert('Please fill out the form')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'please fill out the form below!',
+            })
         } else {
             event.preventDefault();
             console.log('In add form', this.state);
@@ -50,12 +55,12 @@ class addPage extends Component {
     render() {
         return (
 
-            <FormControl>
+            <FormControl class="move">
                 <h1>Create Smart Mark</h1>
                 <input
                     type="text"
                     name="errorCode"
-                    placeholder=" error Code"
+                    placeholder=" error Code 'optional'"
                     onChange={this.handleChange('errorCode')}
                     value={this.state.errorCode} />
                 <input

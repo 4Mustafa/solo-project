@@ -12,7 +12,7 @@ class wordResult extends Component {
     displayItems = (list) => {
         if (list) {
             return (
-                <div>
+                <div class="move">
                     <header> RESULTS</header>
                     {list.map(item =>
                         <table>
