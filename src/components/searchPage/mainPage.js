@@ -46,7 +46,7 @@ export class MainPage extends Component {
     render() {
         return (
             <div class="move">
-                <img src={require('../searchPage/SmartMark.png')} />
+                <header>   <img src={require('../searchPage/SmartMark.png')} /> </header>
                 <h1>SELECT A SEARCH TYPE</h1>
 
 

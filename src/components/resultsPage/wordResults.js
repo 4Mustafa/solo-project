@@ -9,19 +9,22 @@ class wordResult extends Component {
         this.props.history.push('/searchWord');
     }
 
+
+
     displayItems = (list) => {
         if (list) {
             return (
-                <div class="move">
+                <div>
                     <header> RESULTS</header>
-                    {list.map(item =>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Error-Code</th>
-                                <th>Site-Name</th>
-                                <th>link</th>
-                            </tr>
+                    <table>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Error-Code</th>
+                            <th>Site-Name</th>
+                            <th>link</th>
+                        </tr>
+                        {list.map(item =>
+
                             <tr>
                                 <td>{item.topic}</td>
                                 <td>{item.errorcode}</td>
@@ -29,11 +32,11 @@ class wordResult extends Component {
                                 <td><a href={item.url}>{item.url}</a></td>
 
                             </tr>
-                        </table>
 
 
-                    )}
-                    <button onClick={this.handleBack}>Back</button>
+                        )}
+                        <button onClick={this.handleBack}>Back</button>
+                    </table>
                 </div>
             )
 

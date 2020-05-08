@@ -28,7 +28,7 @@ class editPage extends Component {
     }
 
     handleClick = (event) => {
-        if (this.state.errorCode === '' || this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
+        if (this.state.url === '' || this.state.siteName === '' || this.state.topic === '') {
             Swal.fire({
                 position: 'middle-end',
                 icon: 'error',

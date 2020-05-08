@@ -72,19 +72,20 @@ class myResults extends Component {
             return (
                 <div class="move">
                     <h1>  My Marks</h1>
-                    {list.map(item =>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Error-Code</th>
-                                <th>Site-Name</th>
-                                <th>Link</th>
-                                <th>Edit Mark</th>
-                                <th>Delete Mark </th>
+                    <table>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Error-Code</th>
+                            <th>Site-Name</th>
+                            <th>Link</th>
+                            <th>Edit Mark</th>
+                            <th>Delete Mark </th>
 
 
 
-                            </tr>
+                        </tr>
+                        {list.map(item =>
+
                             <tr>
                                 <td>{item.topic}</td>
                                 <td>{item.errorcode}</td>
@@ -95,9 +96,9 @@ class myResults extends Component {
                                 <td>   <button onClick={() => this.handleDelete(item)}>Delete</button></td>
 
                             </tr>
-                        </table>
-                    )
-                    }
+                        )
+                        }
+                    </table>
                 </div >
             )
 

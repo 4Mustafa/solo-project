@@ -35,15 +35,7 @@ class allResults extends Component {
             this.props.dispatch({ type: 'MINUS_RATING', payload: item.id });
         }
     }
-    setFav = (item, item2) => {
-        /*   console.log('item is', item, 'item2 is ', item2);
-          for (let i = 0; i < item2.length; i++) {
-              if (item.id === item2[i].error_id && item.user_id === item2[i].user_id) {
-                  alert('cannot add to fav')
-              } else {
-                  this.props.dispatch({ type: 'ADD_FAV', payload: { item: item, ID: this.props.reduxStore.user.id } });
-              }
-          } */
+    setFav = (item) => {
         this.props.dispatch({ type: 'ADD_FAV', payload: { item: item, ID: this.props.reduxStore.user.id } });
         Swal.fire({
             position: 'middle-end',
@@ -112,27 +104,28 @@ class allResults extends Component {
 
 
 
-    displayItems = (list, list2) => {
+    displayItems = (list) => {
 
         if (list) {
             return (
                 <div>
                     <h1>  All Marks</h1>
-                    {list.map(item =>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Error-Code</th>
-                                <th>Site-Name</th>
-                                <th>Link</th>
-                                <th>Edit Mark</th>
-                                <th>Delete Mark </th>
-                                <th>Rating</th>
-                                <th>Favorite</th>
+                    <table>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Error-Code</th>
+                            <th>Site-Name</th>
+                            <th>Link</th>
+                            <th>Edit Mark</th>
+                            <th>Delete Mark </th>
+                            <th>Rating</th>
+                            <th>Favorite</th>
 
 
 
-                            </tr>
+                        </tr>
+                        {list.map(item =>
+
                             <tr>
                                 <td>{item.topic}</td>
                                 <td>{item.errorcode}</td>
@@ -144,12 +137,12 @@ class allResults extends Component {
                                 <td><span onClick={() => this.handleAdd(item)}>&#8679;</span> {item.rating}
                                     <span onClick={() => this.handleMinus(item)}>&#8681;</span>
                                 </td>
-                                <td onClick={() => this.setFav(item, list2)}>&#10035;</td>
+                                <td onClick={() => this.setFav(item)}>&#10035;</td>
 
                             </tr>
-                        </table>
-                    )
-                    }
+                        )
+                        }
+                    </table>
                 </div >
             )
 
@@ -161,14 +154,13 @@ class allResults extends Component {
         return (
 
             <div>
-                {this.displayItems(this.props.getItem, this.props.getFav)}
+                {this.displayItems(this.props.getItem)}
             </div>
         )
     }
 }
 const putPropsOnRedux = (reduxStore) => ({
     getItem: reduxStore.getItem,
-    getFav: reduxStore.getFav,
     reduxStore
 })
 export default withRouter(connect(putPropsOnRedux)(allResults));

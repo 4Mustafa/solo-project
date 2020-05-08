@@ -22,18 +22,19 @@ class topicResult extends Component {
 
             return (
 
-                <div class="move">
+                <div>
                     <header> All Marks Including {list.topic}</header>
-                    {list.map(item =>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Error-Code</th>
-                                <th>Site-Name</th>
-                                <th>link</th>
-                                <th> Did you want to search for "{item.topic}" on Google</th>
+                    <table>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Error-Code</th>
+                            <th>Site-Name</th>
+                            <th>link</th>
+                            <th> Did you want to search for "{item.topic}" on Google</th>
 
-                            </tr>
+                        </tr>
+                        {list.map(item =>
+
                             <tr>
                                 <td>{item.topic}</td>
                                 <td>{item.errorcode}</td>
@@ -43,12 +44,11 @@ class topicResult extends Component {
 
                             </tr>
 
-                        </table>
 
 
-                    )}
-                    <button onClick={this.handleBack}>Back</button>
-
+                        )}
+                        <button onClick={this.handleBack}>Back</button>
+                    </table>
                 </div>
             )
 

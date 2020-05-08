@@ -21,16 +21,18 @@ class siteName extends Component {
             return (
                 <div class="move">
                     <header> All Marks Including {list.siteName}</header>
-                    {list.map(item =>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Error-Code</th>
-                                <th>Site-Name</th>
-                                <th>link</th>
-                                <th> Did you want to search for "{item.site}" on Google</th>
+                    <table>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Error-Code</th>
+                            <th>Site-Name</th>
+                            <th>link</th>
+                            <th> Did you want to search for "{item.site}" on Google</th>
 
-                            </tr>
+                        </tr>
+                        {list.map(item =>
+
+
                             <tr>
                                 <td>{item.topic}</td>
                                 <td>{item.errorcode}</td>
@@ -39,11 +41,11 @@ class siteName extends Component {
                                 <td><button onClick={() => this.handleGsearch(item.site)}>Yes</button></td>
 
                             </tr>
-                        </table>
 
 
-                    )}
-                    <button onClick={this.handleBack}>Back</button>
+                        )}
+                        <button onClick={this.handleBack}>Back</button>
+                    </table>
                 </div>
             )
 

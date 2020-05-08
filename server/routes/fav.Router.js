@@ -7,8 +7,11 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('in fav router', req.body);
     let sqlText = `INSERT INTO "fav" ("topic", "errorcode","url", "site", "user_id", "error_id") VALUES ($1, $2, $3, $4, $5, $6)`;
-    pool.query(sqlText, [req.body.data.item.topic, req.body.data.item.errorcode, req.body.data.item.url, req.body.data.item.site, req.body.data.ID, req.body.data.item.id]).then((response) => {
-
+    let tester = `SELECT "user_id" , "error_id" FROM fav WHERE "user_id" = $1 AND "error_id" = $2 `
+    pool.query(tester, [req.body.data.ID, req.body.data.item.id]).then((result) => {
+        if (result.rows.length === 0) {
+            pool.query(sqlText, [req.body.data.item.topic, req.body.data.item.errorcode, req.body.data.item.url, req.body.data.item.site, req.body.data.ID, req.body.data.item.id])
+        }
         res.sendStatus(200);
     }).catch(error => {
         console.log('error in adding item to database ', error)

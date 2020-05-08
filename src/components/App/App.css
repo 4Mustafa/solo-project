@@ -1,9 +1,27 @@
 
+.image{
 
+  height: 80%;
+  width: 80%;
+
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+    opacity: 0.05;
+
+}
+.Thead{
+  flex-direction: row;
+}
 
 img{
-  height: 30%;
+  height: 60%;
+  width: 60%;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 30%;
+
 }
 
 body {
@@ -114,3 +132,21 @@ color: black;
 text-align: center;
 }
 
+ol,ul{
+
+color: black;
+text-align: center;
+font-size: x-large;
+  list-style-type: square;
+}
+
+ol {
+  background:  #f2c0b5;
+  padding: 20px;
+}
+
+ul {
+  background: #070141;
+  padding: 20px;
+  color:  #f2c0b5;;
+}

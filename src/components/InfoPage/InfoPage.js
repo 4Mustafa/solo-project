@@ -6,9 +6,21 @@ import React from 'react';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 const InfoPage = () => (
-  <div>
+  <div class="Thead">
+    <h1>Technologies I Used</h1>
+    <ol>
+      <ul>React </ul>
+      <ul>Redux </ul>
+      <ul>Node </ul>
+      <ul>Request </ul>
+      <ul>keyword-extractor </ul>
+      <ul>Express </ul>
+      <ul>Bootstrap </ul>
+      <ul>sweetalert2 </ul>
+    </ol>
+
+
     <p>
-      Info Page
     </p>
   </div>
 );

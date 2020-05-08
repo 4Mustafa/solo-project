@@ -46,16 +46,17 @@ class favResult extends Component {
             return (
                 <div class="move">
                     <h1> Favorite Marks</h1>
-                    {list.map(item =>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Error-Code</th>
-                                <th>Site-Name</th>
-                                <th>link</th>
-                                <th>Delete Favorite </th>
+                    <table>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Error-Code</th>
+                            <th>Site-Name</th>
+                            <th>link</th>
+                            <th>Delete Favorite </th>
 
-                            </tr>
+                        </tr>
+                        {list.map(item =>
+
                             <tr>
                                 <td>{item.topic}</td>
                                 <td>{item.errorcode}</td>
@@ -64,10 +65,10 @@ class favResult extends Component {
                                 <td><button onClick={() => this.handleDelete(item)}>Delete</button></td>
 
                             </tr>
-                        </table>
 
 
-                    )}
+                        )}
+                    </table>
                 </div>
             )
 
