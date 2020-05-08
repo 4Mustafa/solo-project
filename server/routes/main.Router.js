@@ -41,15 +41,16 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         console.log(refrenceWords);
 
         function looper(array) {
-            let finalWords = []
+            let Words = []
+            console.log(array);
             for (let i = 0; i < array.length; i++) {
-                if (array[i].length > 10) {
-                    finalWords.push(array[i])
+                if (/[0 - 9 / $ -/:-?{-~!"^_`\[\]]/gi.test(array[i]) === false && array[i].length < 10 && array[i].length > 3) {
+                    Words.push(array[i])
                 }
             }
-            return finalWords
-        }
 
+            return (Words);
+        }
 
         pool.query(sqlText, [req.body.errorCode, req.body.topic, req.body.user_id]).then((response) => {
             pool.query(sqlText2, [req.body.url, req.body.siteName, response.rows[0].id, looper(refrenceWords)]).then(() => {

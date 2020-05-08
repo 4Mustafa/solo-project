@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
@@ -34,8 +35,15 @@ class allResults extends Component {
             this.props.dispatch({ type: 'MINUS_RATING', payload: item.id });
         }
     }
-    setFav = (item) => {
-
+    setFav = (item, item2) => {
+        /*   console.log('item is', item, 'item2 is ', item2);
+          for (let i = 0; i < item2.length; i++) {
+              if (item.id === item2[i].error_id && item.user_id === item2[i].user_id) {
+                  alert('cannot add to fav')
+              } else {
+                  this.props.dispatch({ type: 'ADD_FAV', payload: { item: item, ID: this.props.reduxStore.user.id } });
+              }
+          } */
         this.props.dispatch({ type: 'ADD_FAV', payload: { item: item, ID: this.props.reduxStore.user.id } });
 
     }
@@ -85,7 +93,7 @@ class allResults extends Component {
 
 
 
-    displayItems = (list) => {
+    displayItems = (list, list2) => {
 
         if (list) {
             return (
@@ -117,7 +125,7 @@ class allResults extends Component {
                                 <td><span onClick={() => this.handleAdd(item)}>&#8679;</span> {item.rating}
                                     <span onClick={() => this.handleMinus(item)}>&#8681;</span>
                                 </td>
-                                <td onClick={() => this.setFav(item)}>&#10035;</td>
+                                <td onClick={() => this.setFav(item, list2)}>&#10035;</td>
 
                             </tr>
                         </table>
@@ -134,13 +142,14 @@ class allResults extends Component {
         return (
 
             <div>
-                {this.displayItems(this.props.getItem)}
+                {this.displayItems(this.props.getItem, this.props.getFav)}
             </div>
         )
     }
 }
 const putPropsOnRedux = (reduxStore) => ({
     getItem: reduxStore.getItem,
+    getFav: reduxStore.getFav,
     reduxStore
 })
 export default withRouter(connect(putPropsOnRedux)(allResults));

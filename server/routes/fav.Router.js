@@ -20,7 +20,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     let id = req.params.id
     console.log('in getfav router', id);
 
-    const queryText = `SELECT id, errorcode, user_id, topic, url, site FROM fav WHERE user_id = $1 `;
+    const queryText = `SELECT id, errorcode, user_id, topic, url, error_id, site FROM fav WHERE user_id = $1 `;
     pool.query(queryText, [id])
         .then((result) => {
             res.send(result.rows);

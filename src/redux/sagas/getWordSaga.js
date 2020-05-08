@@ -6,9 +6,11 @@ function* wordSaga() {
     yield takeLatest('GET_WORD', getWords);
 }
 
-function* getWords() {
+function* getWords(action) {
     try {
-        const response = yield axios.get('/word');
+        let id = action.payload.newWord;
+
+        const response = yield axios.get(`/word/${id}`);
         yield put({ type: 'SET_WORD', payload: response.data });
         console.log('IN GET WORD', response.data);
 

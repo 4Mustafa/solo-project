@@ -5,12 +5,14 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
-    console.log(req.body);
+router.get('/:id', (req, res) => {
 
-    const queryText = `SELECT error.id, errorCode, topic, url, site, refrences FROM error
+    let id = req.params
+    console.log('in word router body is', id.id);
+
+    const queryText = `SELECT error.id, errorcode, topic, url, site, refrences FROM error
         JOIN url ON error.id = url.error_id WHERE refrences LIKE $1`;
-    pool.query(queryText, [`%${req.body.newWord}%`])
+    pool.query(queryText, [`%${id.id}%`])
         .then((result) => {
             res.send(result.rows);
             console.log('results.rows are', result.rows);
