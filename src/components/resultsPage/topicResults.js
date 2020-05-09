@@ -17,20 +17,20 @@ class topicResult extends Component {
 
 
     displayItems = (list) => {
+        console.log('list is', list);
 
         if (list) {
 
             return (
 
                 <div>
-                    <header> All Marks Including {list.topic}</header>
                     <table>
                         <tr>
                             <th>Topic</th>
                             <th>Error-Code</th>
                             <th>Site-Name</th>
                             <th>link</th>
-                            <th> Did you want to search for "{item.topic}" on Google</th>
+                            <th> search on Google</th>
 
                         </tr>
                         {list.map(item =>
@@ -40,7 +40,7 @@ class topicResult extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.site}</td>
                                 <td><a href={item.url}>{item.url}</a></td>
-                                <td><button onClick={() => this.handleGsearch(item.topic)}>Yes</button></td>
+                                <td><button onClick={() => this.handleGsearch(item.topic)}>Search for {item.topic}</button></td>
 
                             </tr>
 

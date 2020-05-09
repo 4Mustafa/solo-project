@@ -26,7 +26,7 @@ class errorResult extends Component {
                             <th>Error-Code</th>
                             <th>Site-Name</th>
                             <th>link</th>
-                            <th> Did you want to search for "{item.errorcode}" on Google</th>
+                            <th> search on Google</th>
 
                         </tr>
                         {list.map(item =>
@@ -37,7 +37,7 @@ class errorResult extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.site}</td>
                                 <td><a href={item.url}>{item.url}</a></td>
-                                <td><button onClick={() => this.handleGsearch(item.errorcode)}>yes</button></td>
+                                <td><button onClick={() => this.handleGsearch(item.errorcode)}>Search for {item.errorcode}</button></td>
 
                             </tr>
 

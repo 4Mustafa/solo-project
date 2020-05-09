@@ -20,14 +20,13 @@ class siteName extends Component {
         if (list) {
             return (
                 <div class="move">
-                    <header> All Marks Including {list.siteName}</header>
                     <table>
                         <tr>
                             <th>Topic</th>
                             <th>Error-Code</th>
                             <th>Site-Name</th>
                             <th>link</th>
-                            <th> Did you want to search for "{item.site}" on Google</th>
+                            <th> search on Google</th>
 
                         </tr>
                         {list.map(item =>
@@ -38,7 +37,7 @@ class siteName extends Component {
                                 <td>{item.errorcode}</td>
                                 <td>{item.site}</td>
                                 <td><a href={item.url}>{item.url}</a></td>
-                                <td><button onClick={() => this.handleGsearch(item.site)}>Yes</button></td>
+                                <td><button onClick={() => this.handleGsearch(item.site)}>Search for {item.site}</button></td>
 
                             </tr>
 
