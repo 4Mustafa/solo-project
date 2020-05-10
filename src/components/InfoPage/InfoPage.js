@@ -12,11 +12,13 @@ const InfoPage = () => (
       <ul>React </ul>
       <ul>Redux </ul>
       <ul>Node </ul>
-      <ul>Request </ul>
-      <ul>keyword-extractor </ul>
       <ul>Express </ul>
       <ul>Bootstrap </ul>
       <ul>sweetalert2 </ul>
+      <ul>Request </ul>
+      <ul>keyword-extractor </ul>
+      <ul>PostgreSQL </ul>
+
     </ol>
 
 

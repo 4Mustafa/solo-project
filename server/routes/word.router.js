@@ -11,7 +11,7 @@ router.get('/:id', (req, res) => {
     console.log('in word router body is', id.id);
 
     const queryText = `SELECT error.id, errorcode, topic, url, site, refrences FROM error
-        JOIN url ON error.id = url.error_id WHERE refrences LIKE $1`;
+        JOIN url ON error.id = url.error_id WHERE refrences ILIKE $1`;
     pool.query(queryText, [`%${id.id}%`])
         .then((result) => {
             res.send(result.rows);

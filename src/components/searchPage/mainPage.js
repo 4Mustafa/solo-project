@@ -58,7 +58,7 @@ export class MainPage extends Component {
                         <option value='1'>Site Name</option>
                         <option value='2'>Error Code</option>
                         <option value='3'>Topic</option>
-                        <option value='4'>Refrence-Words</option>
+                        <option value='4'>Words Found On Website</option>
                     </select>
                     <button onClick={this.handleSubmit}>Select </button>
 

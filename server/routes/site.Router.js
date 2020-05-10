@@ -10,7 +10,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
 
     const queryText = `SELECT error.id, errorCode, topic, url, site, refrences FROM error
-        JOIN url ON error.id = url.error_id WHERE url.site LIKE $1`;
+        JOIN url ON error.id = url.error_id WHERE url.site ILIKE $1`;
     pool.query(queryText, [`%${req.body.newSite}%`])
         .then((result) => {
             res.send(result.rows);
