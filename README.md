@@ -5,7 +5,7 @@ Smart-Mark,
 -A FullStack bookmarking application where users are able to track programing errors they encounter and the resources found to resolve them
 -a resouce can be tracked by lables that the user inputs or words found on the web page of the resource  
 -lables include error code, url, site name, and topic
--Users can find resources by searching for any works found on bookmarked sites or labels attached to said resources
+-Users can find resources by searching for any words found on bookmarked sites or labels attached to said resources
 features include adding into the application,updating information found on the app, deleteing information, liking information, searching through the app, and favoriting information.
 ## Screen Shot
 ![](documentation/images/select.png)- users are able to select a search type and search through the application on this page
